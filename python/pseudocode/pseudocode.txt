@@ -1,0 +1,19 @@
+Pseudocode
+
+Input: 2D Array
+- Dim 1: Class
+- Dim 2: Point (x,y,scale,rot)
+- INVARIANT: Every point has distinct (x,y)
+
+pairs = []
+for c1 in class:
+  for c2 in class:
+    if c1 != c2:
+	  3D = normalize_all() # O(n^2)
+	  # 4*(nlogn + n) = O(nlogn)
+	  groups = compare_scale(c2, 3D)
+	  groups = compare_rot(groups, 3D)
+	  groups = compare_x(groups, 3D)
+	  groups = compare_y(groups, 3D)
+	  pairs[c1][c2] = groups
+drawRects(pairs)
